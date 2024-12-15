@@ -8,6 +8,7 @@
           <option value="mediaserver" />
           <option value="mediaclient" />
           <option value="mediaclient" />
+          <option value="proto" />
         </list>
       </option>
       <option name="ignoredPackages">
@@ -15,10 +16,12 @@
           <option value="com.google.protobuf:protobuf-java:3.19.0" />
           <option value="org.springframework:spring-webmvc:6.2.0" />
           <option value="com.google.protobuf:protobuf-java:3.21.7" />
+          <option value="com.google.protobuf:protobuf-java:3.24.0" />
         </list>
       </option>
       <option name="ignoredReasons">
         <list>
+          <option value="Not exploitable" />
           <option value="Not exploitable" />
           <option value="Not exploitable" />
           <option value="Not exploitable" />
