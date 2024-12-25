@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MediaclientApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MediaclientApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MediaclientApplication.class, args);
+    }
 
 }
