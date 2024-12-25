@@ -2,7 +2,6 @@ package com.lahcencodes.mediaserver.dao;
 
 import com.lahcencodes.mediaserver.entity.CreatorEntity;
 import com.lahcencodes.mediaserver.repository.CreatorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;

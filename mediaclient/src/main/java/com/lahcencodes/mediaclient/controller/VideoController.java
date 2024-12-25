@@ -2,29 +2,36 @@ package com.lahcencodes.mediaclient.controller;
 
 import com.lahcencodes.mediaclient.dto.VideoDto;
 import com.lahcencodes.mediaclient.service.VideoServiceClient;
+import com.lahcencodes.mediaclient.mapper.VideoMapper;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.lahcencodes.proto.Creator;
-import com.lahcencodes.proto.UploadVideoRequest;
 
 @RestController
+@RequestMapping("/videos")
+@RequiredArgsConstructor
 public class VideoController {
 
-    private final VideoServiceClient videoService;
+    private final VideoServiceClient videoServiceClient;
 
-    public VideoController(VideoServiceClient videoService) {
-        this.videoService = videoService;
+    @PostMapping("/upload")
+    public ResponseEntity<?> uploadVideo(@RequestBody VideoDto videoDto) {
+        try {
+            var request = VideoMapper.toProto(videoDto);
+            VideoDto response = videoServiceClient.uploadVideo(request);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Failed to upload video: " + e.getMessage());
+        }
     }
 
-    @PostMapping("addVideo")
-    public VideoDto uploadVideo() {
-        Creator creator = Creator.newBuilder().setName("Robert C. Martin").setEmail("unclebob@cleancode.com").setId("2024").build();
-
-        UploadVideoRequest request = UploadVideoRequest.newBuilder().setTitle("Clean Code: A Handbook of Agile Software Craftsmanship").setDescription("A guide to producing readable, reusable, and refactorable software in Java.").setUrl("https://www.goodreads.com/book/show/3735293-clean-code").setDurationSeconds(600)
-                .setCreator(creator).build();
-
-        VideoDto videoDto = videoService.uploadVideo(request);
-        System.out.println(videoDto);
-        return videoDto;
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getVideo(@PathVariable String id) {
+        try {
+            VideoDto video = videoServiceClient.getVideo(id);
+            return ResponseEntity.ok(video);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Video not found: " + e.getMessage());
+        }
     }
-
 }

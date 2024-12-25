@@ -10,6 +10,7 @@
           <option value="mediaclient" />
           <option value="proto" />
           <option value="mediaserver" />
+          <option value="mediaclient" />
         </list>
       </option>
       <option name="ignoredPackages">
@@ -19,10 +20,12 @@
           <option value="com.google.protobuf:protobuf-java:3.21.7" />
           <option value="com.google.protobuf:protobuf-java:3.24.0" />
           <option value="ch.qos.logback:logback-core:1.5.12" />
+          <option value="ch.qos.logback:logback-core:1.5.12" />
         </list>
       </option>
       <option name="ignoredReasons">
         <list>
+          <option value="Not exploitable" />
           <option value="Not exploitable" />
           <option value="Not exploitable" />
           <option value="Not exploitable" />

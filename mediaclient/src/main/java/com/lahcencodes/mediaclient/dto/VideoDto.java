@@ -1,18 +1,13 @@
 package com.lahcencodes.mediaclient.dto;
 
-import lombok.*;
+import lombok.Data;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@Getter
-@Setter
+@Data
 public class VideoDto {
-
-    String id;
-    String title;
-    String description;
-    String url;
-    int duration_seconds;
-
+    private String id;
+    private String title;
+    private String description;
+    private String url;
+    private int durationSeconds;
+    private CreatorDto creator;
 }
