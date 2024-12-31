@@ -15,10 +15,7 @@ public class CreatorMapper {
     }
 
     public Creator toProto(CreatorDto creatorDto) {
-        return Creator.newBuilder()
-                .setId(creatorDto.getId())
-                .setName(creatorDto.getName())
-                .setEmail(creatorDto.getEmail())
-                .build();
+        return modelMapper.map(creatorDto, Creator.class);
+
     }
 }

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CreatorDto {
-    private String id;
-    private String name;
-    private String email;
+    private String idd;
+    private String nadme;
+    private String edmail;
 }
